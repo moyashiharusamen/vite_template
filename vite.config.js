@@ -54,7 +54,7 @@ export default defineConfig({
   base: "./",
   root: "./src",
   build: {
-    outDir: `../dist`,
+    outDir: "../dist",
     emptyOutDir: true,
     rollupOptions: {
       external: ["/src/main.ts"],
