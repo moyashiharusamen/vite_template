@@ -11,7 +11,7 @@ const readDirectory = (dirPath) => {
     const itemPath = path.join(dirPath, item);
 
     if (fs.statSync(itemPath).isDirectory()) {
-      if (item === 'components') continue;
+      if (item === "components") continue;
 
       readDirectory(itemPath);
     } else {
@@ -20,16 +20,16 @@ const readDirectory = (dirPath) => {
       if (path.extname(itemPath) !== ".html") continue;
 
       // nameを決定する
-      if (dirPath === path.resolve(__dirname, 'src')) {
+      if (dirPath === path.resolve(__dirname, "src")) {
         name = path.parse(itemPath).name;
       } else {
-        const relativePath = path.relative(path.resolve(__dirname, 'src'), dirPath);
-        const dirName = relativePath.replace(/\//g, '_');
+        const relativePath = path.relative(path.resolve(__dirname, "src"), dirPath);
+        const dirName = relativePath.replace(/\//g, "_");
         name = `${dirName}_${path.parse(itemPath).name}`;
       }
 
       // pathを決定する
-      const relativePath = path.relative(path.resolve(__dirname, 'src'), itemPath);
+      const relativePath = path.relative(path.resolve(__dirname, "src"), itemPath);
       const filePath = `/${relativePath}`;
 
       files.push({ name, path: filePath });
