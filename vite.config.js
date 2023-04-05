@@ -77,14 +77,14 @@ export default defineConfig({
   /*
     プラグインの設定を追加
   */
-    plugins: [
-      handlebars({
-        //コンポーネントの格納ディレクトリを指定
-        partialDirectory: resolve(__dirname, "./src/components"),
-        //各ページ情報の読み込み
-        context(pagePath) {
-          return pageData[pagePath];
-        },
-      }),
-    ],
+  plugins: [
+    handlebars({
+      //コンポーネントの格納ディレクトリを指定
+      partialDirectory: resolve(__dirname, "./src/components"),
+      //各ページ情報の読み込み
+      context(pagePath) {
+        return pageData[pagePath];
+      },
+    }),
+  ],
 });
