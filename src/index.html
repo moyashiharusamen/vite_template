@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="jp">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite</title>
+    <title>{{ title }}</title>
     <link rel="stylesheet" href="/assets/style/main.scss">
+    <script type="module" src="/assets/script/main.ts" defer></script>
   </head>
   <body>
-    <script type="module" src="/assets/script/main.ts"></script>
+    {{> header}}
+
+    {{> footer}}
   </body>
 </html>

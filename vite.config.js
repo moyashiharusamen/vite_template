@@ -1,7 +1,10 @@
 import { defineConfig } from "vite";
 import { resolve } from "path";
-import fs, { read } from "fs";
+import fs from "fs";
 import path from "path";
+import handlebars from "vite-plugin-handlebars";
+import page from "./page";
+
 
 const files = [];
 const readDirectory = (dirPath) => {
@@ -43,6 +46,9 @@ for (let i = 0; i < files.length; i++) {
   inputFiles[file.name] = resolve(__dirname, "./src" + file.path );
 }
 
+//HTML上で出し分けたい各ページごとの情報
+const pageData = page;
+
 // https://vitejs.dev/config/
 export default defineConfig({
   base: "./",
@@ -68,4 +74,17 @@ export default defineConfig({
       input: inputFiles,
     },
   },
+  /*
+    プラグインの設定を追加
+  */
+    plugins: [
+      handlebars({
+        //コンポーネントの格納ディレクトリを指定
+        partialDirectory: resolve(__dirname, "./src/components"),
+        //各ページ情報の読み込み
+        context(pagePath) {
+          return pageData[pagePath];
+        },
+      }),
+    ],
 });
