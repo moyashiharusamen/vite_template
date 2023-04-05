@@ -55,6 +55,7 @@ export default defineConfig({
   root: "./src",
   build: {
     outDir: `../dist`,
+    emptyOutDir: true,
     rollupOptions: {
       external: ["/src/main.ts"],
       output: {
@@ -63,12 +64,12 @@ export default defineConfig({
 
           // ビルド時の CSS 名を明記してコントロールする
           if(extType === "css") {
-            return `assets/style/main.css`;
+            return "assets/style/main.css";
           }
-          return `assets/script/[name][extname]`;
+          return "assets/script/[name][extname]";
         },
-        chunkFileNames: "assets/script/[name].js",
-        entryFileNames: "assets/script/[name].js",
+        chunkFileNames: "assets/script/main.js",
+        entryFileNames: "assets/script/main.js",
       },
       // 生成オブジェクトを渡す
       input: inputFiles,
