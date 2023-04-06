@@ -9,7 +9,7 @@ import { v4 as uuidv4 } from 'uuid';
  */
 export default class Modal {
   /**
-   * @property {string} ブロック名
+   * @property {string} BEM ブロック名
    */
   static baseName: string = 'modal';
 
