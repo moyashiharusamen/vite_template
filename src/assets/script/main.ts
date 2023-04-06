@@ -8,6 +8,6 @@ document.querySelectorAll('.toggle').forEach((element: Object) => {
 document.querySelectorAll('.modal').forEach((element: Object) => {
   new Modal(element);
 });
-// document.querySelectorAll('.tab').forEach((element: Object) => {
-//   new Tab(element);
-// });
+document.querySelectorAll('.tab').forEach((element: Object) => {
+  new Tab(element);
+});
