@@ -16,8 +16,42 @@
     }
 
     // ---------- 本体部分 ----------
-    // .modal__body {
-    // }
+    .modal__body {
+      visibility: hidden;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      margin: auto;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      transition: visibility 0.4s ease;
+    }
+
+    .modal__body[aria-hidden="false"] {
+      display: flex;
+      visibility: visible;
+    }
+
+    .modal__body__inner {
+      width: g.pxToVw(300, 'sp');
+      padding: g.rem(20px) g.rem(30px);
+      background: #fff;
+      opacity: 0;
+      z-index: 100;
+      transition: opacity 0.3s ease;
+
+      @include g.mediaQuery() {
+        width: min(g.pxToVw(800, 'pc'), g.rem(800px));
+        padding: g.rem(50px);
+      }
+    }
+
+    .modal__body[aria-hidden="false"] .modal__body__inner {
+      opacity: 1;
+    }
 
     // ---------- 透過背景 ----------
     .modal__overlay {
