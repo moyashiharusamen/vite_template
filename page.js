@@ -8,6 +8,9 @@ const page = {
     isHome: true,
     title: "Top Page",
   },
+  "/hoge/index.html": {
+    title: "Hoge Page",
+  },
 };
 
 export default page;
