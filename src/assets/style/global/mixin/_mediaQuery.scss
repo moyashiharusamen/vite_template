@@ -4,8 +4,8 @@
 
 // ========== responsive ==========
 $breakpoints: (
-  "sp": "(width <= " + var.$breakpoint  + ")",
-  "pc": "(width >= " + var.$breakpoint  + ")",
+  "sp": "(width <= " + var.$breakpoint + ")",
+  "pc": "(width >= " + var.$breakpoint + ")"
 ) !default;
 
 @mixin mediaQuery($breakpoint: "pc") {

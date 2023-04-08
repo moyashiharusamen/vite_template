@@ -2,7 +2,7 @@
  *  @fileoverview モーダルを制御するJS
  *  ============================================================ */
 
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 /**
  * @class Modal
@@ -11,7 +11,7 @@ export default class Modal {
   /**
    * @property {string} BEM ブロック名
    */
-  static baseName: string = 'modal';
+  static baseName: string = "modal";
 
   base: HTMLElement;
   body: HTMLBodyElement;
@@ -41,12 +41,12 @@ export default class Modal {
     /**
      * @type {HTMLElement} HTML の body 要素
      */
-    this.body = <HTMLBodyElement>document.querySelector('body');
+    this.body = <HTMLBodyElement>document.querySelector("body");
 
     /**
      * @type {HTMLElement} モーダルの開閉される本体要素
      */
-    const modalBody = this.modalBody = <HTMLElement>base.querySelector(`.${baseName}__body`);
+    const modalBody = (this.modalBody = <HTMLElement>base.querySelector(`.${baseName}__body`));
 
     /**
      * @type {HTMLElement} モーダルの開閉を制御するボタン要素
@@ -56,7 +56,8 @@ export default class Modal {
     /**
      * @type {string} フォーカス可能と判断する対象となる要素名
      */
-    const focusableElementList: string = 'a[href], area[href], input, select, textarea, button, output, video, audio, object, embed, iframe, [tabindex], [onclick]';
+    const focusableElementList: string =
+      "a[href], area[href], input, select, textarea, button, output, video, audio, object, embed, iframe, [tabindex], [onclick]";
 
     /**
      * @type {NodeList} モーダル内のフォーカス可能な要素群
@@ -78,19 +79,21 @@ export default class Modal {
     /**
      * @type {HTMLElement} モーダル内のフォーカス可能な要素群の中の最後の要素
      */
-    this.lastFocusableElement = <HTMLElement>this.focusableElement[this.focusableElement.length - 1];
+    this.lastFocusableElement = <HTMLElement>(
+      this.focusableElement[this.focusableElement.length - 1]
+    );
 
     /**
      * @type {HTMLElement} モーダル内の透過背景要素
      */
-    this.modalOverlay = <HTMLDivElement>document.createElement('div');
+    this.modalOverlay = <HTMLDivElement>document.createElement("div");
     this.modalOverlay.classList.add(`${baseName}__overlay`);
     this.modalBody.appendChild(this.modalOverlay);
 
     /**
      * @type {string} モーダルが開いたときに付与される class 属性名
      */
-    this.openClass = '-modal-open';
+    this.openClass = "-modal-open";
 
     /**
      * @type {string} ユニークな識別子
@@ -111,14 +114,14 @@ export default class Modal {
    * @return {Void}
    */
   setAttr() {
-    this.button.setAttribute('aria-expanded', 'false');
-    this.button.setAttribute('aria-controls', this.uniquId);
-    this.modalBody.setAttribute('role', 'dialog');
-    this.modalBody.setAttribute('aria-modal', 'true');
-    this.modalBody.setAttribute('aria-hidden', 'true');
-    this.modalBody.setAttribute('id', this.uniquId);
+    this.button.setAttribute("aria-expanded", "false");
+    this.button.setAttribute("aria-controls", this.uniquId);
+    this.modalBody.setAttribute("role", "dialog");
+    this.modalBody.setAttribute("aria-modal", "true");
+    this.modalBody.setAttribute("aria-hidden", "true");
+    this.modalBody.setAttribute("id", this.uniquId);
 
-    if (this.focusableElement.length === 0) this.modalBody.setAttribute('tabindex', '0');
+    if (this.focusableElement.length === 0) this.modalBody.setAttribute("tabindex", "0");
   }
 
   /**
@@ -126,20 +129,20 @@ export default class Modal {
    * @return {Void}
    */
   bindEvents() {
-    this.button.addEventListener('click', () => {
-      this.button.getAttribute('aria-expanded') === 'false' ? this.open() : this.close();
+    this.button.addEventListener("click", () => {
+      this.button.getAttribute("aria-expanded") === "false" ? this.open() : this.close();
     });
-    this.modalOverlay.addEventListener('click', () => this.close());
-    this.base.addEventListener('keyup', e => {
+    this.modalOverlay.addEventListener("click", () => this.close());
+    this.base.addEventListener("keyup", e => {
       if (
-        (e.key === 'Escape' || e.key === 'Esc') &&
-        this.modalBody.getAttribute('aria-hidden') === 'false'
+        (e.key === "Escape" || e.key === "Esc") &&
+        this.modalBody.getAttribute("aria-hidden") === "false"
       ) {
         this.close();
       }
     });
-    this.base.addEventListener('keydown', e => {
-      if (e.code === 'Tab') {
+    this.base.addEventListener("keydown", e => {
+      if (e.code === "Tab") {
         if (e.shiftKey) {
           if (document.activeElement === this.firstFocusableElement) {
             e.preventDefault();
@@ -163,11 +166,11 @@ export default class Modal {
     this.windowYPosition = window.pageYOffset;
     this.body.classList.add(this.openClass);
     this.body.style.top = `${-this.windowYPosition}px`;
-    this.modalBody.setAttribute('aria-hidden', 'false');
-    this.modalBody.setAttribute('tabindex', '0');
-    this.button.setAttribute('aria-expanded', 'true');
+    this.modalBody.setAttribute("aria-hidden", "false");
+    this.modalBody.setAttribute("tabindex", "0");
+    this.button.setAttribute("aria-expanded", "true");
     this.firstFocusableElement.focus();
-    window.addEventListener('keydown', () => this.focusIndex());
+    window.addEventListener("keydown", () => this.focusIndex());
   }
 
   /**
@@ -176,13 +179,13 @@ export default class Modal {
    */
   close() {
     this.body.classList.remove(this.openClass);
-    this.body.style.top = '';
-    this.modalBody.setAttribute('aria-hidden', 'true');
-    this.modalBody.removeAttribute('tabindex');
-    this.button.setAttribute('aria-expanded', 'false');
+    this.body.style.top = "";
+    this.modalBody.setAttribute("aria-hidden", "true");
+    this.modalBody.removeAttribute("tabindex");
+    this.button.setAttribute("aria-expanded", "false");
     window.scrollTo(0, this.windowYPosition);
     this.button.focus();
-    window.removeEventListener('keydown', () => this.focusIndex());
+    window.removeEventListener("keydown", () => this.focusIndex());
   }
 
   focusIndex() {

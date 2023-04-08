@@ -2,7 +2,7 @@
  *  @fileoverview トグルを制御するJS
  *  ============================================================ */
 
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 /**
  * @class Toggle
@@ -11,7 +11,7 @@ export default class Toggle {
   /**
    * @property {string} BEM ブロック名
    */
-  static baseName: string = 'toggle';
+  static baseName: string = "toggle";
 
   base: HTMLElement;
   body: HTMLElement;
@@ -61,9 +61,9 @@ export default class Toggle {
    * @return {Void}
    */
   setAttr() {
-    this.button.setAttribute('aria-expanded', 'false');
-    this.button.setAttribute('aria-controls', this.uniquId);
-    this.body.setAttribute('id', this.uniquId);
+    this.button.setAttribute("aria-expanded", "false");
+    this.button.setAttribute("aria-controls", this.uniquId);
+    this.body.setAttribute("id", this.uniquId);
   }
 
   /**
@@ -71,7 +71,7 @@ export default class Toggle {
    * @return {Void}
    */
   bindEvents() {
-    this.button.addEventListener('click', e => {
+    this.button.addEventListener("click", e => {
       e.preventDefault();
       this.toggle();
     });
@@ -90,9 +90,9 @@ export default class Toggle {
    * @return {Void}
    */
   open() {
-    this.body.setAttribute('aria-hidden', 'false');
-    this.button.setAttribute('aria-expanded', 'true');
-    this.buttonMark.textContent = '閉じる';
+    this.body.setAttribute("aria-hidden", "false");
+    this.button.setAttribute("aria-expanded", "true");
+    this.buttonMark.textContent = "閉じる";
   }
 
   /**
@@ -100,9 +100,9 @@ export default class Toggle {
    * @return {Void}
    */
   close() {
-    this.body.setAttribute('aria-hidden', 'true');
-    this.button.setAttribute('aria-expanded', 'false');
-    this.buttonMark.textContent = '開く';
+    this.body.setAttribute("aria-hidden", "true");
+    this.button.setAttribute("aria-expanded", "false");
+    this.buttonMark.textContent = "開く";
   }
 
   /**
@@ -110,6 +110,6 @@ export default class Toggle {
    * @returns {boolean}
    */
   isOpened() {
-    return this.body.getAttribute('aria-hidden') !== 'true';
+    return this.body.getAttribute("aria-hidden") !== "true";
   }
 }
