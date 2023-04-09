@@ -5,6 +5,7 @@ import path from "path";
 import handlebars from "vite-plugin-handlebars";
 import page from "./page";
 import checker from "vite-plugin-checker";
+import vue from "@vitejs/plugin-vue";
 
 const files = [];
 const readDirectory = dirPath => {
@@ -89,6 +90,7 @@ export default defineConfig({
     }),
     checker({
       typescript: true
-    })
-  ]
+    }),
+    vue()
+  ],
 });
