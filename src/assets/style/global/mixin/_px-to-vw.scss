@@ -1,0 +1,19 @@
+@charset "utf-8";
+@use "sass:math";
+@use "../variables" as v;
+
+// ========== px to vw ==========
+// 引数の px を vw に変換して返す
+@function px-to-vw($px, $device: "sp") {
+  $content-size: 0;
+
+  @if $device == "sp" {
+    $content-size: v.$content-width;
+  } @else if $device == "pc" {
+    $content-size: v.$content-width-pc;
+  } @else {
+    $content-size: v.$content-width;
+  }
+
+  @return math.div($px, $content-size) * 100vw;
+}

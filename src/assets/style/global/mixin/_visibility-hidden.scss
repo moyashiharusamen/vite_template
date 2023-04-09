@@ -2,7 +2,7 @@
 
 // ========== visibility hidden ==========
 
-@mixin visibilityHidden() {
+@mixin visibility-hidden() {
   display: block;
   overflow: hidden;
   width: 0;

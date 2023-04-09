@@ -3,7 +3,7 @@
 // ========== reset margin ==========
 // 参照した要素の直下の最初と最後の子要素の上下マージンを 0 にする
 
-@mixin resetMargin() {
+@mixin reset-margin() {
   & > *:first-child {
     margin-top: 0 !important;
   }

@@ -8,7 +8,7 @@ $breakpoints: (
   "pc": "(width >= " + var.$breakpoint + ")"
 ) !default;
 
-@mixin mediaQuery($breakpoint: "pc") {
+@mixin mediaquery($breakpoint: "pc") {
   @if $breakpoint == "sp" {
     @media screen and #{map-get($breakpoints, $breakpoint)} {
       @content;
