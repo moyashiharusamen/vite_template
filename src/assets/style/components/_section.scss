@@ -10,7 +10,7 @@
 
     // ---------- インナー要素 ----------
     .section__inner {
-      @include g.resetMargin();
+      @include g.reset-margin();
     }
   }
 }

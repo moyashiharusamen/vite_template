@@ -13,7 +13,7 @@
     // }
 
     .modal__button__text {
-      @include g.visibilityHidden();
+      @include g.visibility-hidden();
     }
 
     // ---------- 本体部分 ----------
@@ -37,15 +37,15 @@
     }
 
     .modal__body__inner {
-      width: g.pxToVw(300, "sp");
+      width: g.px-to-vw(300, "sp");
       padding: g.rem(20px) g.rem(30px);
       background: #fff;
       opacity: 0;
       z-index: 100;
       transition: opacity 0.3s ease;
 
-      @include g.mediaQuery() {
-        width: min(g.pxToVw(800, "pc"), g.rem(800px));
+      @include g.mediaquery() {
+        width: min(g.px-to-vw(800, "pc"), g.rem(800px));
         padding: g.rem(50px);
       }
     }

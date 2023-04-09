@@ -11,7 +11,7 @@
     // ---------- ボタン内のテキスト ----------
     .toggle__button__mark,
     .accordionItem__button__mark {
-      @include g.visibilityHidden();
+      @include g.visibility-hidden();
     }
 
     // ---------- トグルの本体要素 ----------

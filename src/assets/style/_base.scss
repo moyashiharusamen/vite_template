@@ -25,7 +25,7 @@ body {
   color: g.$base-text-color;
   line-height: 1.6;
 
-  @include g.mediaQuery() {
+  @include g.mediaquery() {
     font-size: g.rem(g.$font-size-pc);
   }
 }
