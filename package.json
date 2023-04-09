@@ -15,12 +15,12 @@
     "prettier:write:ts": "prettier --write 'src/**/*.ts'",
     "prettier:write:html": "prettier --write 'src/**/*.html'",
     "prettier:write:scss": "prettier --write 'src/**/*.scss'",
+    "html:lint": "markuplint 'dist/**/*.html'",
     "stylelint": "stylelint **/*.scss",
     "stylelint:fix": "stylelint --fix .scss",
     "eslint": "eslint --ext .ts --ignore-path .eslintignore .",
     "eslint:fix": "eslint --fix --ext .ts --ignore-path .gitignore .",
-    "html:lint": "markuplint 'dist/**/*.html'",
-    "lint": "npm run stylelint && npm run eslint && npm run html:lint"
+    "lint": "npm run html:lint && npm run stylelint && npm run eslint"
   },
   "browserslist": [
     "> 0.2%, not dead",

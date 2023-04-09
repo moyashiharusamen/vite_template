@@ -10,5 +10,8 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "rules": {}
+  "rules": {
+    "no-new": 0,
+    "@typescript-eslint/restrict-template-expressions": "off"
+  }
 }
