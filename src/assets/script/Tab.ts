@@ -22,7 +22,7 @@ export default class Tab {
    * @param {Element} element 基底要素ノード、またはそれを探すための文字列
    * @param {string} rootName 設定したいブロック名
    */
-  constructor (element: Element, rootName: string = Tab.baseName) {
+  constructor(element: Element, rootName: string = Tab.baseName) {
     const baseName = (this.baseName = rootName)
 
     /**
@@ -53,7 +53,7 @@ export default class Tab {
    * 属性の初期設定
    * @return {Void}
    */
-  setAttr (): void {
+  setAttr(): void {
     let defaultDisplayNumber: number
     this.buttonWrap.setAttribute('role', 'tablist')
     this.bodies.forEach((body: any, i) => {
@@ -80,8 +80,8 @@ export default class Tab {
    * イベントのバインド登録
    * @return {Void}
    */
-  bindEvents (): void {
-    this.buttons.forEach((button) => {
+  bindEvents(): void {
+    this.buttons.forEach(button => {
       button.addEventListener('click', e => {
         const target: any = e.target
         if (target.getAttribute('aria-selected') === 'true') return
@@ -89,7 +89,9 @@ export default class Tab {
         this.toggle(target, false)
       })
 
-      button.addEventListener('keydown', e => { this.keyCtrl(e) })
+      button.addEventListener('keydown', e => {
+        this.keyCtrl(e)
+      })
     })
   }
 
@@ -97,10 +99,10 @@ export default class Tab {
    * タブの開閉
    * @return {Void}
    */
-  toggle (target: HTMLElement, inputKeyboard: boolean): void {
+  toggle(target: HTMLElement, inputKeyboard: boolean): void {
     const currentTargetID = target.getAttribute('aria-controls')
-    const targetElement = (
-      this.base.querySelector(`.${this.baseName}__body[id='${currentTargetID}'`)
+    const targetElement = this.base.querySelector(
+      `.${this.baseName}__body[id='${currentTargetID}'`
     ) as HTMLElement
 
     if (targetElement.getAttribute('aria-hidden') === 'false') return
@@ -123,7 +125,7 @@ export default class Tab {
    * タブボタンをキーボードで操作したときの挙動の制御
    * @return {Void}
    */
-  keyCtrl (e: any): void {
+  keyCtrl(e: any): void {
     let target
     const currentTarget = e.target
 

@@ -30,7 +30,7 @@ export default class Modal {
    * @param {Element} element 基底要素ノード、またはそれを探すための文字列
    * @param {string} rootName 設定したいブロック名
    */
-  constructor (element: Element, rootName: string = Modal.baseName) {
+  constructor(element: Element, rootName: string = Modal.baseName) {
     const baseName = rootName
 
     /**
@@ -79,9 +79,7 @@ export default class Modal {
     /**
      * @type {HTMLElement} モーダル内のフォーカス可能な要素群の中の最後の要素
      */
-    this.lastFocusableElement = (
-      this.focusableElement[this.focusableElement.length - 1]
-    )
+    this.lastFocusableElement = this.focusableElement[this.focusableElement.length - 1]
 
     /**
      * @type {HTMLElement} モーダル内の透過背景要素
@@ -113,7 +111,7 @@ export default class Modal {
    * 属性の初期設定
    * @return {Void}
    */
-  setAttr (): void {
+  setAttr(): void {
     this.button.setAttribute('aria-expanded', 'false')
     this.button.setAttribute('aria-controls', this.uniquId)
     this.modalBody.setAttribute('role', 'dialog')
@@ -128,11 +126,13 @@ export default class Modal {
    * イベントのバインド登録
    * @return {Void}
    */
-  bindEvents (): void {
+  bindEvents(): void {
     this.button.addEventListener('click', () => {
       this.button.getAttribute('aria-expanded') === 'false' ? this.open() : this.close()
     })
-    this.modalOverlay.addEventListener('click', () => { this.close() })
+    this.modalOverlay.addEventListener('click', () => {
+      this.close()
+    })
     this.base.addEventListener('keyup', e => {
       if (
         (e.key === 'Escape' || e.key === 'Esc') &&
@@ -162,7 +162,7 @@ export default class Modal {
    * モーダルを開く
    * @return {Void}
    */
-  open (): void {
+  open(): void {
     this.windowYPosition = window.pageYOffset
     this.body.classList.add(this.openClass)
     this.body.style.top = `${-this.windowYPosition}px`
@@ -170,14 +170,16 @@ export default class Modal {
     this.modalBody.setAttribute('tabindex', '0')
     this.button.setAttribute('aria-expanded', 'true')
     this.firstFocusableElement.focus()
-    window.addEventListener('keydown', () => { this.focusIndex() })
+    window.addEventListener('keydown', () => {
+      this.focusIndex()
+    })
   }
 
   /**
    * モーダルを閉じる
    * @return {Void}
    */
-  close (): void {
+  close(): void {
     this.body.classList.remove(this.openClass)
     this.body.style.top = ''
     this.modalBody.setAttribute('aria-hidden', 'true')
@@ -185,10 +187,12 @@ export default class Modal {
     this.button.setAttribute('aria-expanded', 'false')
     window.scrollTo(0, this.windowYPosition)
     this.button.focus()
-    window.removeEventListener('keydown', () => { this.focusIndex() })
+    window.removeEventListener('keydown', () => {
+      this.focusIndex()
+    })
   }
 
-  focusIndex (): void {
+  focusIndex(): void {
     const focusIndex = (() => {
       return this.focusableElement.findIndex(el => el === document.activeElement)
     })()

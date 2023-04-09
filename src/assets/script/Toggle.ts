@@ -24,7 +24,7 @@ export default class Toggle {
    * @param {Element} element 基底要素ノード、またはそれを探すための文字列
    * @param {string} rootName 設定したいブロック名
    */
-  constructor (element: Element, rootName: string = Toggle.baseName) {
+  constructor(element: Element, rootName: string = Toggle.baseName) {
     const name = rootName
 
     /**
@@ -60,7 +60,7 @@ export default class Toggle {
    * 属性の初期設定
    * @return {Void}
    */
-  setAttr (): void {
+  setAttr(): void {
     this.button.setAttribute('aria-expanded', 'false')
     this.button.setAttribute('aria-controls', this.uniquId)
     this.body.setAttribute('id', this.uniquId)
@@ -70,7 +70,7 @@ export default class Toggle {
    * イベントのバインド登録
    * @return {Void}
    */
-  bindEvents (): void {
+  bindEvents(): void {
     this.button.addEventListener('click', e => {
       e.preventDefault()
       this.toggle()
@@ -81,7 +81,7 @@ export default class Toggle {
    * トグルの開閉
    * @return {Void}
    */
-  toggle (): void {
+  toggle(): void {
     this.isOpened() ? this.close() : this.open()
   }
 
@@ -89,7 +89,7 @@ export default class Toggle {
    * トグルを開く
    * @return {Void}
    */
-  open (): void {
+  open(): void {
     this.body.setAttribute('aria-hidden', 'false')
     this.button.setAttribute('aria-expanded', 'true')
     this.buttonMark.textContent = '閉じる'
@@ -99,7 +99,7 @@ export default class Toggle {
    * トグルを開く
    * @return {Void}
    */
-  close (): void {
+  close(): void {
     this.body.setAttribute('aria-hidden', 'true')
     this.button.setAttribute('aria-expanded', 'false')
     this.buttonMark.textContent = '開く'
@@ -109,7 +109,7 @@ export default class Toggle {
    * トグルが開いているかどうか
    * @returns {boolean}
    */
-  isOpened (): boolean {
+  isOpened(): boolean {
     return this.body.getAttribute('aria-hidden') !== 'true'
   }
 }
