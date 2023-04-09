@@ -16,7 +16,8 @@
     "prettier:write:html": "prettier --write 'src/**/*.html'",
     "prettier:write:scss": "prettier --write 'src/**/*.scss'",
     "stylelint": "stylelint **/*.scss",
-    "stylelint:fix": "stylelint --fix .scss"
+    "stylelint:fix": "stylelint --fix .scss",
+    "html:lint": "markuplint 'dist/**/*.html'"
   },
   "browserslist": [
     "> 0.2%, not dead",
@@ -32,6 +33,7 @@
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-promise": "^6.1.1",
     "fs": "^0.0.1-security",
+    "markuplint": "^3.7.0",
     "path": "^0.12.7",
     "postcss": "^8.4.21",
     "prettier": "^2.8.7",
