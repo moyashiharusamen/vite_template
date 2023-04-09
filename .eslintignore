@@ -1,1 +1,2 @@
 src/vite-env.d.ts
+src/shims-vue.d.ts
