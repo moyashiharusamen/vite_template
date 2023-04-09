@@ -29,7 +29,7 @@ const readDirectory = dirPath => {
       } else {
         const relativePath = path.relative(path.resolve(__dirname, "src"), dirPath);
         const dirName = relativePath.replace(/\//g, "_");
-        name = `${dirName}_${path.parse(itemPath).name}`;
+        name = dirName;
       }
 
       // pathを決定する
@@ -55,10 +55,11 @@ export default defineConfig({
   base: "./",
   root: "./src",
   build: {
-    outDir: "../dist",
+    outDir: resolve(__dirname, "dist"),
     emptyOutDir: true,
     rollupOptions: {
-      external: ["/src/main.ts"],
+      // 生成オブジェクトを渡す
+      input: inputFiles,
       output: {
         assetFileNames: assetInfo => {
           let extType = assetInfo.name.split(".")[1];
@@ -67,13 +68,11 @@ export default defineConfig({
           if (extType === "css") {
             return "assets/style/main.css";
           }
-          return "assets/script/[name][extname]";
+          return `assets/script/[name][extname]`;
         },
-        chunkFileNames: "assets/script/main.js",
-        entryFileNames: "assets/script/main.js"
+        chunkFileNames: `assets/script/[name].js`,
+        entryFileNames: `assets/script/[name].js`
       },
-      // 生成オブジェクトを渡す
-      input: inputFiles
     }
   },
   /*
