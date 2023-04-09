@@ -14,7 +14,9 @@
     "prettier:write": "npm run prettier:write:ts && npm run prettier:write:html && npm run prettier:write:scss",
     "prettier:write:ts": "prettier --write 'src/**/*.ts'",
     "prettier:write:html": "prettier --write 'src/**/*.html'",
-    "prettier:write:scss": "prettier --write 'src/**/*.scss'"
+    "prettier:write:scss": "prettier --write 'src/**/*.scss'",
+    "stylelint": "stylelint **/*.scss",
+    "stylelint:fix": "stylelint --fix .scss"
   },
   "browserslist": [
     "> 0.2%, not dead",
@@ -34,6 +36,9 @@
     "postcss": "^8.4.21",
     "prettier": "^2.8.7",
     "sass": "^1.60.0",
+    "stylelint": "^15.4.0",
+    "stylelint-config-prettier-scss": "^0.0.1",
+    "stylelint-config-standard-scss": "^7.0.1",
     "typescript": "^5.0.4",
     "uuid": "^9.0.0",
     "vite": "^4.2.0",
