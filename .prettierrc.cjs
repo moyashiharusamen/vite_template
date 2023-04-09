@@ -1,11 +1,20 @@
 module.exports = {
   overrides: [
     {
-      files: '*.html, *.scss, *.js, *.ts',
+      files: '*.html, *.scss',
+      options: {
+        // 行末にセミコロン
+        semi: true,
+      }
+    },
+    {
+      files: '*.js, *.ts',
+      options: {
+        // 行末にセミコロン
+        semi: false,
+      }
     },
   ],
-  // 行末にセミコロン
-  semi: true,
   // 末尾のカンマ
   trailingComma: "none",
   // アロー関数の引数のカッコを可能な限り省略する
