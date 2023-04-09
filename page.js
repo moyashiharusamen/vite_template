@@ -11,6 +11,9 @@ const page = {
   "/hoge/index.html": {
     title: "Hoge Page",
   },
+  "/check/index.html": {
+    title: "Check Page",
+  },
 };
 
 export default page;
