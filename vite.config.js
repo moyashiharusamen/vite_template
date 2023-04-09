@@ -6,9 +6,8 @@ import handlebars from "vite-plugin-handlebars";
 import page from "./page";
 import checker from "vite-plugin-checker";
 
-
 const files = [];
-const readDirectory = (dirPath) => {
+const readDirectory = dirPath => {
   const items = fs.readdirSync(dirPath);
 
   for (const item of items) {
@@ -44,7 +43,7 @@ readDirectory(path.resolve(__dirname, "src"));
 const inputFiles = {};
 for (let i = 0; i < files.length; i++) {
   const file = files[i];
-  inputFiles[file.name] = resolve(__dirname, "./src" + file.path );
+  inputFiles[file.name] = resolve(__dirname, "./src" + file.path);
 }
 
 //HTML上で出し分けたい各ページごとの情報
@@ -60,21 +59,21 @@ export default defineConfig({
     rollupOptions: {
       external: ["/src/main.ts"],
       output: {
-        assetFileNames: (assetInfo) => {
+        assetFileNames: assetInfo => {
           let extType = assetInfo.name.split(".")[1];
 
           // ビルド時の CSS 名を明記してコントロールする
-          if(extType === "css") {
+          if (extType === "css") {
             return "assets/style/main.css";
           }
           return "assets/script/[name][extname]";
         },
         chunkFileNames: "assets/script/main.js",
-        entryFileNames: "assets/script/main.js",
+        entryFileNames: "assets/script/main.js"
       },
       // 生成オブジェクトを渡す
-      input: inputFiles,
-    },
+      input: inputFiles
+    }
   },
   /*
     プラグインの設定を追加
@@ -86,10 +85,10 @@ export default defineConfig({
       //各ページ情報の読み込み
       context(pagePath) {
         return pageData[pagePath];
-      },
+      }
     }),
     checker({
       typescript: true
-    }),
-  ],
+    })
+  ]
 });
