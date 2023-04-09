@@ -4,6 +4,7 @@ import fs from "fs";
 import path from "path";
 import handlebars from "vite-plugin-handlebars";
 import page from "./page";
+import checker from "vite-plugin-checker";
 
 
 const files = [];
@@ -86,6 +87,9 @@ export default defineConfig({
       context(pagePath) {
         return pageData[pagePath];
       },
+    }),
+    checker({
+      typescript: true
     }),
   ],
 });
