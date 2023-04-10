@@ -16,7 +16,7 @@ module.exports = {
 
   overrides: [
     {
-      files: ['./**/*.ts', './**/*.js'],
+      files: ['./**/*.ts', './**/*.js', './**/*.vue'],
       options: {
         // 行末にセミコロン
         semi: false,
