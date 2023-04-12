@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="jp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>{{ title }}</title>
+    <link
+      rel="stylesheet"
+      href="/assets/style/main.scss"
+    />
+    <script
+      type="module"
+      src="/assets/script/main.ts"
+    ></script>
+    <script
+      type="module"
+      src="/assets/script/check2.ts"
+    ></script>
+  </head>
+  <body>
+    {{> header}}
+
+    <main id="main">
+      <p>メインコンテンツ</p>
+
+      <div id="check"></div>
+    </main>
+
+    {{> footer}}
+  </body>
+</html>
