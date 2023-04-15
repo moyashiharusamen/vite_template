@@ -17,6 +17,10 @@ const page = {
     title: "Check Page",
     description: "Check page description",
   },
+  "/check/index2.html": {
+    title: "Check2 Page",
+    description: "Check2 page description",
+  },
 };
 
 export default page;
