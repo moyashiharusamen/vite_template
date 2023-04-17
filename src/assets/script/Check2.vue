@@ -65,7 +65,7 @@
           >
             <button
               type="button"
-              @click="isResultDisplay = !isResultDisplay"
+              @click="handleClickToResultButton"
             >
               結果を表示する
             </button>
@@ -232,6 +232,13 @@ const handleClickBackButton = () => {
 const handleClickNextButton = () => {
   incrementCurrentQuestionId()
   checkPaginationButton()
+}
+/**
+ * 結果を表示するボタンを押したとき
+ * @return {Void}
+ */
+const handleClickToResultButton = () => {
+  isResultDisplay.value = !isResultDisplay.value
 }
 </script>
 
