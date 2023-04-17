@@ -243,10 +243,70 @@ const handleClickToResultButton = () => {
 </script>
 
 <style lang="scss" scoped>
+@use "../style/global" as g;
+
+// ---------- ブロックの基底要素 ----------
+// .root {}
+.body {
+  @include g.centering();
+}
+
+// ---------- 設問要素 ----------
+.question {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: g.rem(10px);
+  max-width: g.rem(500px);
+  margin-inline: auto;
+  padding: g.rem(20px);
+  border: g.rem(1px) solid g.$base-color;
+  border-radius: 10px;
+}
+
+.choice {
+  display: flex;
+  align-items: center;
+  gap: g.rem(20px);
+}
+
+// ---------- 結果要素 ----------
+.result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: g.rem(10px);
+  max-width: g.rem(500px);
+  margin-inline: auto;
+}
+
+.result__inner {
+  @include g.centering();
+}
+
+// ---------- コントローラー要素 ----------
+.controller {
+  display: flex;
+  align-items: center;
+  gap: g.rem(20px);
+}
 .controller > button {
   transition: 0.2s opacity ease;
 }
 .controller > button[aria-disabled='true'] {
   opacity: 0;
+}
+
+.controller > .back {
+  order: 1;
+}
+.controller > .next {
+  order: 3;
+}
+
+.controller > .progress {
+  order: 2;
 }
 </style>
