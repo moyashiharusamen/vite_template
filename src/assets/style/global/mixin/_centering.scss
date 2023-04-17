@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 @use "../variables" as v;
-@use "./mediaQuery" as mq;
+@use "./mediaquery" as mq;
 
 // ========== position ==========
 @mixin centering() {
@@ -12,7 +12,7 @@
   padding-left: v.$content-margin;
   box-sizing: border-box;
 
-  @include mq.mediaQuery() {
+  @include mq.mediaquery() {
     padding-right: v.$content-margin-pc;
     padding-left: v.$content-margin-pc;
   }
