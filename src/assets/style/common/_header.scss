@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+@use "../global" as g;
+
+.header {
+  @at-root {
+    // ---------- 基底要素 ----------
+    // .header {
+    // }
+
+    // ---------- 基底要素のインナー要素 ----------
+    .header__inner {
+      @include g.centering();
+    }
+  }
+}
