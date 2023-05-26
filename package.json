@@ -55,6 +55,7 @@
     "vue-tsc": "^1.2.0"
   },
   "dependencies": {
-    "@acab/reset.css": "^0.5.3"
+    "@acab/reset.css": "^0.5.3",
+    "luxy.js": "^0.1.0"
   }
 }
